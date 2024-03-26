@@ -116,23 +116,81 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 // contact form variables
+// Contact form variables
 const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+const formInputs = form.querySelectorAll("[data-form-input]");
+const formBtn = form.querySelector("[data-form-btn]");
+const whatsappBtn = document.querySelector(".whatsapp-btn"); // Optional
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
+// Add event listener to the form button
+formBtn.addEventListener("click", function (event) {
+  // Prevent default form submission behavior
+  event.preventDefault();
 
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+  // Check form validation
+  if (form.checkValidity()) {
+    // Get form data
+    const formData = new FormData(form);
+    const name = formData.get("fullname"); // Corrected field name
+    const email = formData.get("email");
+    const message = formData.get("message");
 
+    // Construct WhatsApp message
+    const phoneNumber = "+919361191640"; // Replace with your phone number
+    const encodedMessage = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappLink, "_blank");
+
+    // Reset the form (optional)
+    form.reset();
+  } else {
+    // Display an error message or highlight invalid fields
+    alert("Please fill out all required fields correctly.");
+  }
+});
+
+// Add event listener to all form input fields
+formInputs.forEach(input => {
+  input.addEventListener("input", function () {
+    formBtn.disabled = !form.checkValidity();
   });
-}
+});
+
+// // Add event listener to all form input fields (optional)
+// if (formInputs.length > 0) {
+//   for (let i = 0; i < formInputs.length; i++) {
+//     formInputs[i].addEventListener("input", function () {
+//       if (form.checkValidity()) {
+//         formBtn.removeAttribute("disabled");
+//       } else {
+//         formBtn.setAttribute("disabled", "");
+//       }
+//     });
+//   }
+// }
+
+// // WhatsApp button event listener (optional)
+// if (whatsappBtn) {
+//   whatsappBtn.addEventListener("click", function () {
+//     // Prompt user for name and email (optional, adjust as needed)
+//     const name = prompt("Enter your name:");
+//     const email = prompt("Enter your email:");
+
+//     // Construct a custom WhatsApp message
+//     const message = `Name: ${name} \nEmail: ${email} \nMessage: `; // Combine data
+
+//     // Create WhatsApp link with pre-formatted message
+//     const phoneNumber = "+919361191640"; // Replace with your phone number
+//     const encodedMessage = encodeURIComponent(message);
+//     const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+//     // Open the link in a new tab/window
+//     window.open(url, "_blank").focus();
+//   });
+// }
+
 
 
 

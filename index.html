@@ -125,7 +125,7 @@
 
         <div class="separator"></div>
 
-        <ul class="social-list">
+        <!-- <ul class="social-list">
 
           <li class="social-item">
             <a href="#" class="social-link">
@@ -145,7 +145,7 @@
             </a>
           </li>
 
-        </ul>
+        </ul> -->
 
       </div>
 
@@ -177,9 +177,9 @@
             <button class="navbar-link" data-nav-link>Resume</button>
           </li>
 
-          <li class="navbar-item">
+          <!-- <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
+          </li> -->
 
           <!-- <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Blog</button>
@@ -706,12 +706,12 @@ I'm a dynamic Front-End Developer originating from Tamil Nadu, India, with a rec
 
       <article class="portfolio" data-page="portfolio">
 
-        <header>
+        <!-- <header>
           <h2 class="h2 article-title">Portfolio</h2>
-        </header>
+        </header> -->
 
         <section class="projects">
-
+<!-- 
           <ul class="filter-list">
 
             <li class="filter-item">
@@ -730,7 +730,7 @@ I'm a dynamic Front-End Developer originating from Tamil Nadu, India, with a rec
               <button data-filter-btn>Web development</button>
             </li>
 
-          </ul>
+          </ul> -->
 
           <div class="filter-select-box">
 
@@ -766,7 +766,7 @@ I'm a dynamic Front-End Developer originating from Tamil Nadu, India, with a rec
 
           </div>
 
-          <ul class="project-list">
+          <!-- <ul class="project-list">
 
             <li class="project-item  active" data-filter-item data-category="web development">
               <a href="#">
@@ -930,7 +930,7 @@ I'm a dynamic Front-End Developer originating from Tamil Nadu, India, with a rec
               </a>
             </li>
 
-          </ul>
+          </ul> -->
 
         </section>
 
@@ -974,17 +974,20 @@ I'm a dynamic Front-End Developer originating from Tamil Nadu, India, with a rec
           <form action="#" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="fullname" class="form-input" id="fname" placeholder="Full name" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" id="mail" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Your Message" id="msg" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+            <a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=+919361191640" target="_blank">
+              <button class="form-btn" type="submit" disabled data-form-btn>
+                <ion-icon name="paper-plane"></ion-icon>
+                <span>Send Message</span>
+              </button>
+            </a>
+            
 
           </form>
 
